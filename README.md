@@ -1,6 +1,12 @@
 # Ansible_ISE_Policy_Set_MM_LIM
 Ansible playbook for creating Wired Monitor Mode &amp; Low Impact Mode Policy Sets in Cisco Identity Services Engine (ISE) 3.1+
 
+This playbook was validated using:
+ - ISE 3.1 patch 1
+ - Ansible 2.9.21
+ - CiscoISESDK 1.5.1
+ - ISE Ansible collection 2.3.0
+
 ## ISE Pre-requisites
 The following ISE configurations are required prior to running this playbook:
 
