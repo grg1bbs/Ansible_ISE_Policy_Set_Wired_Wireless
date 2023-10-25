@@ -1,25 +1,32 @@
-# Ansible_ISE_Policy_Set_MM_LIM
-Ansible playbook for creating Wired Monitor Mode &amp; Low Impact Mode Policy Sets in Cisco Identity Services Engine (ISE) 3.1+
+# Ansible_ISE_Policy_Set_Wired_Wireless
+Ansible playbook for creating Wired Monitor Mode, Wired Low Impact Mode, and Wireless Secure Policy Sets in Cisco Identity Services Engine (ISE) 3.1+
 
 This playbook was validated using:
- - ISE 3.1 patch 1
- - Ansible 2.9.21
- - CiscoISESDK 1.5.1
- - ISE Ansible collection 2.3.0
+ - ISE 3.1 patch 7
+ - Ansible 2.15.5
+ - CiscoISESDK 2.0.12
+ - ISE Ansible collection 2.5.16
 
 ## ISE Pre-requisites
 The following ISE configurations are required prior to running this playbook:
 
-1. An administrator account with the 'ERS Admin' role
-2. An Active Directory Join Point configured and the AD Groups 'Domain Computers' and 'Domain Users' added
+ 1. An administrator account with the 'ERS Admin' role
+ 2. An Active Directory domain admin account with Join permissions
 
 ## Policies and Policy Elements created
 The following Policy Elements and Policy Sets are created by this playbook:
 
 ### Policy Elements
 
+ - Active Directory Join Point
+   - Join node(s) to domain in the defined Org Unit
+   - Add default 'Domain Users' and Domain Computers' AD groups
  - Allowed Protocols list named 'MAB_Dot1x' with the following protocols enabled:
    - Process Host Lookup (MAB)
+   - EAP-TLS
+   - PEAP(MSCHAPv2)
+   - TEAP (MSCHAPv2 & EAP-TLS inner methods) with EAP Chaining
+ - Allowed Protocols list named 'Dot1x' with the following protocols enabled:
    - EAP-TLS
    - PEAP(MSCHAPv2)
    - TEAP (MSCHAPv2 & EAP-TLS inner methods) with EAP Chaining
@@ -34,7 +41,6 @@ The following Policy Elements and Policy Sets are created by this playbook:
 Wired_MM
  - AuthC Policies
    - Dot1x Certificate
-   - Dot1x PEAP
    - MAB
  - AuthZ Policies
    - AD User and Computer (EAP Chaining)
@@ -45,13 +51,20 @@ Wired_MM
 Wired_LIM
  - AuthC Policies
    - Dot1x Certificate
-   - Dot1x PEAP
    - MAB
  - AuthZ Policies
    - AD User and Computer (EAP Chaining)
    - AD Users
    - AD Computers
    - Default (updated AuthZ Profile)
+
+Wireless Secure
+ - AuthC Policies
+   - Dot1x Certificate
+ - AuthZ Policies
+   - AD User and Computer (EAP Chaining)
+   - AD Users
+   - AD Computers
 
 ## Ansible Pre-requisites
 Running this playbook requires Python and Ansible software installed.
@@ -64,15 +77,16 @@ See [Ansible Modules for Cisco ISE](https://galaxy.ansible.com/cisco/ise) for mo
 1. Clone this repository:  
 
     ```bash
-    git clone https://github.com/grg1bbs/Ansible_ISE_Policy_Set_MM_LIM
+    git clone https://github.com/grg1bbs/Ansible_ISE_Policy_Set_Wired_Wireless
     ```
  
-2. Edit the 'credentials.yml' and 'hosts' file to suit your environment
-
-3. Edit the 'policyset-mm-lim.yml' file to replace the <my_domain_name> and <my_join_point_name> variables with the values used in your ISE deployment
+2. Edit the following files to suit your environment:
+ - credentials.yaml
+ - hosts
+ - variables.yaml
 
 4. Run the Ansible playbook
 
     ```bash
-    ansible-playbook -i hosts policyset-mm-lim.yml
+    ansible-playbook -i hosts policyset.yaml
     ```
