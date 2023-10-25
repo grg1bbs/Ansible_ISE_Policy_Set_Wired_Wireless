@@ -2,9 +2,9 @@
 # Please update the variable names to suit your preferences and environment
     
     ise_global:
-      ad_domain_name: "trappedunderise.com" # example "company.com"
-      ad_join_point_name: "ISELAB_AD" # example "Company_AD"
-      ad_orgunit: "OU=ISE,DC=trappedunderise,DC=com" # example "OU=ISE,DC=Company,DC=com"
+      ad_domain_name: "company.com" # example
+      ad_join_point_name: "Company_AD" # example
+      ad_orgunit: "OU=ISE,DC=Company,DC=com" # example
       cap_name_1: "CertProf_AD" 
       iss_name_1: "ISS_AD_Cert"
       secure_ssid_name: ":companywlan" # Colon (:) is used as a matching condition for 'Radius: Called-Station-ID ENDS_WITH :ssid'
