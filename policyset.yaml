@@ -2,7 +2,6 @@
   hosts: ise_servers
   vars_files:
     - credentials.yaml
-    - vault.yaml #optional; used for ansible-vault
     - variables.yaml
   vars:
     ise_login: &ise_login
