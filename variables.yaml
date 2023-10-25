@@ -1,0 +1,40 @@
+# The variables defined below represent examples
+# Please update the variable names to suit your preferences and environment
+    
+    ise_global:
+      ad_domain_name: "trappedunderise.com" # example "company.com"
+      ad_join_point_name: "ISELAB_AD" # example "Company_AD"
+      ad_orgunit: "OU=ISE,DC=trappedunderise,DC=com" # example "OU=ISE,DC=Company,DC=com"
+      cap_name_1: "CertProf_AD" 
+      iss_name_1: "ISS_AD_Cert"
+      secure_ssid_name: ":companywlan" # Colon (:) is used as a matching condition for 'Radius: Called-Station-ID ENDS_WITH :ssid'
+      airespace_acl_name: "ACL-ALLOW-ALL" # predefined ACL name on AireOS WLC
+
+# Variables for Policy Set 1
+    ps1:
+      policy_set_name: "Wired_MM"
+      policy_set_desc: "Wired Monitor Mode"
+      authc_rule_name_1: "Dot1x EAP-TLS"
+      authc_rule_name_2: "MAB"
+      authz_rule_name_1: "AD User and Computer"
+      authz_rule_name_2: "AD User"
+      authz_rule_name_3: "AD Computer"
+
+# Variables for Policy Set 2
+    ps2:
+      policy_set_name: "Wired_LIM"
+      policy_set_desc: "Wired Low Impact Mode"
+      authc_rule_name_1: "Dot1x EAP-TLS"
+      authc_rule_name_2: "MAB"
+      authz_rule_name_1: "AD User and Computer"
+      authz_rule_name_2: "AD User"
+      authz_rule_name_3: "AD Computer"
+
+# Variables for Policy Set 3
+    ps3:
+      policy_set_name: "Wireless Secure"
+      policy_set_desc: "Wireless Secure"
+      authc_rule_name_1: "EAP-TLS"
+      authz_rule_name_1: "AD User and Computer"
+      authz_rule_name_2: "AD User"
+      authz_rule_name_3: "AD Computer"
