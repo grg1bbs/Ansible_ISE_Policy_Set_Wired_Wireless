@@ -2,7 +2,7 @@
 Ansible playbook for creating Wired Monitor Mode, Wired Low Impact Mode, and Wireless Secure Policy Sets in Cisco Identity Services Engine (ISE) 3.1+
 
 This playbook was validated using:
- - ISE 3.1 patch 7
+ - ISE 3.1 patch 7 & 3.2 patch 4
  - Ansible 2.15.5
  - CiscoISESDK 2.0.12
  - ISE Ansible collection 2.5.16
