@@ -71,7 +71,7 @@ Running this playbook requires Python and Ansible software installed.
 If you have any problems installing Python or Ansible, see [Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
 Using Ansible to interact with the Cisco ISE API also requires the Cisco ISE SDK and Ansible Collection.
-See [Ansible Modules for Cisco ISE](https://galaxy.ansible.com/cisco/ise) for more information.
+See [Ansible Modules for Cisco ISE](https://github.com/CiscoISE/ansible-ise) for more information.
 
 ## Quick Start
 1. Clone this repository:  
